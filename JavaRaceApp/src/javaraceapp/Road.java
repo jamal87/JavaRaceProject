@@ -66,8 +66,16 @@ public class Road extends JPanel implements ActionListener{
         lifeImg = new LinkedList<>(Arrays.asList(new ImageIcon(getClass().getResource("Res/car_7989.png")).getImage(), 
                                                  new ImageIcon(getClass().getResource("Res/car_7989.png")).getImage(),
                                                  new ImageIcon(getClass().getResource("Res/car_7989.png")).getImage()));
-        coin = new LinkedList<>();
+        /*
+          02.12.2016 
+          ToDo List:
+          1. чтобы не делать synchronize в методе потока, переделать на Collections.synchronizedList, например
+              coin = Collections.synchronizedList(new LinkedList<Coins>());
+        */
+        //начало переделки
+        coin = new LinkedList<>(); 
         enem = new LinkedList<>();
+        //---------конец переделки
         p = new Player(this);
         img = new ImageIcon(getClass().getResource("Res/road.png")).getImage();
         mTimer = new Timer(20, this);
